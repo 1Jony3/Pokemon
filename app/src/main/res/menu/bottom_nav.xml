@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_load"
+        android:title="@string/loading"
+        android:icon="@drawable/ic_loading"/>
+    <item
+        android:id="@+id/menu_hp"
+        android:title="@string/hp"
+        android:icon="@drawable/ic_hp"/>
+    <item
+        android:id="@+id/menu_attack"
+        android:title="@string/attack"
+        android:icon="@drawable/ic_attack"/>
+    <item
+        android:id="@+id/menu_defense"
+        android:title="@string/defense"
+        android:icon="@drawable/ic_defense"/>
+</menu>

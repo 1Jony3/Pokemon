@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Pokemon</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="stats">Stats</string>
+    <string name="hp">hp</string>
+    <string name="attack">attack</string>
+    <string name="defense">defense</string>
+    <string name="special_attack">special-attack:</string>
+    <string name="special_defense">special-defense:</string>
+    <string name="speed">speed:</string>
+    <string name="home">home</string>
+    <string name="loading">loading</string>
+</resources>
