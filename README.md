@@ -24,3 +24,7 @@
 ## Недочеты
 - [ ] Понять почему пересоздается LiveData и исправить
 - [ ] Понять почему при фильтрации пропадают данные с экрана и исправить
+## Интерфейс
+
+![OGLpkBXBjhE](https://user-images.githubusercontent.com/90905407/179052296-36ef75aa-0cbc-4024-a5d2-a723b2dd31b8.jpg)
+![ksyzRKaUjs4](https://user-images.githubusercontent.com/90905407/179052286-bc58130c-ce80-479b-ae2e-198355e347ba.jpg)
