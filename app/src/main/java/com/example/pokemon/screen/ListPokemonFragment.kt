@@ -33,6 +33,7 @@ class ListPokemonFragment : Fragment(R.layout.fragment_list_pokemon) {
     private lateinit var binding: FragmentListPokemonBinding
 
     companion object{
+        const val ARG_NAME = "name"
         const val ARG_ID = "id"
     }
 
@@ -48,8 +49,8 @@ class ListPokemonFragment : Fragment(R.layout.fragment_list_pokemon) {
     private fun setupAdapter(view: View) {
 
         adapter = PokemonAdapter(object : OnClickPokemonListener {
-            override fun onClick(id: Int) {
-                //openDetails(id)
+            override fun onClick(name: String, id: Int) {
+                openDetails(name, id)
             }
         })
 
@@ -103,11 +104,11 @@ class ListPokemonFragment : Fragment(R.layout.fragment_list_pokemon) {
             //viewModel.refresh()
         }
     }
-    /*private fun openDetails(id: Int){
+    private fun openDetails(name: String, id: Int){
         d("lol", "nn details - ${findNavController().currentDestination}")
         findNavController().navigate(
-            R.id.action_pokemonListFragment_to_detailsPokemonFragment,
-            bundleOf(ARG_ID to id))
-    }*/
+            R.id.action_listPokemonFragment_to_detailsPokemonFragment,
+            bundleOf(ARG_NAME to name, ARG_ID to id))
+    }
 
 }

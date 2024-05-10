@@ -8,5 +8,18 @@
         android:id="@+id/listPokemonFragment"
         android:name="com.example.pokemon.screen.ListPokemonFragment"
         android:label="Pokemon"
-        tools:layout="@layout/fragment_list_pokemon" />
+        tools:layout="@layout/fragment_list_pokemon" >
+        <action
+            android:id="@+id/action_listPokemonFragment_to_detailsPokemonFragment"
+            app:destination="@id/detailsPokemonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsPokemonFragment"
+        android:name="com.example.pokemon.screen.DetailsPokemonFragment"
+        android:label="{name}"
+        tools:layout="@layout/fragment_details_pokemon" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
 </navigation>

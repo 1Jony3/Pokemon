@@ -12,7 +12,7 @@ import com.example.pokemon.databinding.ItemPokemonBinding
 import com.example.pokemon.model.data.entities.NamedApiResource
 
 interface OnClickPokemonListener {
-    fun onClick(id: Int)
+    fun onClick(name: String, id: Int)
 }
 class PokemonAdapter(
     private val onClickListener: OnClickPokemonListener
@@ -27,10 +27,11 @@ class PokemonAdapter(
                 .toList()
 
             val imageURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id[1]}.png"
-            loadUserPhoto(imageIV, imageURL)
+            loadPhoto(imageIV, imageURL)
 
             holder.itemView.setOnClickListener {
                 onClickListener.onClick(
+                    pokemon.name,
                     id[1].toInt()
                 ) }
         }
@@ -42,7 +43,7 @@ class PokemonAdapter(
         return Holder(binding)
     }
 
-    private fun loadUserPhoto(imageView: ImageView, url: String) {
+    private fun loadPhoto(imageView: ImageView, url: String) {
         val context = imageView.context
         if (url.isNotBlank()) {
             Glide.with(context)
