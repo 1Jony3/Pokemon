@@ -1,6 +1,7 @@
 package com.example.pokemon.screen
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.pokemon.model.data.api.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,6 +22,7 @@ class ListPokemonViewModel @Inject constructor(private val repository: Repositor
 
     private val _listData = MutableStateFlow<PagingData<NamedApiResource>?>(null)
     val listData: StateFlow<PagingData<NamedApiResource>?> = _listData.asStateFlow()
+    private val searchBy = MutableLiveData("")
 
     init {
         getProducts()
@@ -39,19 +41,14 @@ class ListPokemonViewModel @Inject constructor(private val repository: Repositor
             }
         }
     }
-}
-    /*private fun getProducts() = searchBy.asFlow()
-        .debounce(500)
-        .flatMapLatest {
-            repository.getPokemonList()
-        }
-        .cachedIn(viewModelScope)
-/*
-    /*fun setSearchBy(value: String) {
+
+    fun setSearchBy(value: String) {
         if (this.searchBy.value == value) return
         this.searchBy.postValue(value)
-        listData = getProducts()
+        //getProducts()
     }
+
     fun refresh() {
         this.searchBy.postValue(this.searchBy.value)
-    }*/
+    }
+}

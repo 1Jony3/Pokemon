@@ -42,7 +42,7 @@ class ListPokemonFragment : Fragment(R.layout.fragment_list_pokemon) {
 
         binding = FragmentListPokemonBinding.bind(view)
         setupAdapter(view)
-        //setupSearchInput()
+        setupSearchInput()
         setupSwipeToRefresh()
     }
 
@@ -94,14 +94,14 @@ class ListPokemonFragment : Fragment(R.layout.fragment_list_pokemon) {
         }
 
     }
-    /*private fun setupSearchInput() {
+    private fun setupSearchInput() {
         binding.searchEditText.addTextChangedListener {
             viewModel.setSearchBy(it.toString())
         }
-    }*/
+    }
     private fun setupSwipeToRefresh() {
         binding.swipeRefreshLayout.setOnRefreshListener {
-            //viewModel.refresh()
+            viewModel.refresh()
         }
     }
     private fun openDetails(name: String, id: Int){
