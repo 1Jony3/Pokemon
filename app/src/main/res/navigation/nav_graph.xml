@@ -6,7 +6,7 @@
     app:startDestination="@id/listPokemonFragment">
     <fragment
         android:id="@+id/listPokemonFragment"
-        android:name="com.example.pokemon.ListPokemonFragment"
-        android:label="fragment_list_pokemon"
+        android:name="com.example.pokemon.screen.ListPokemonFragment"
+        android:label="Pokemon"
         tools:layout="@layout/fragment_list_pokemon" />
 </navigation>

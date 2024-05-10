@@ -11,7 +11,7 @@ import javax.inject.Singleton
 
 @Singleton
 class PokemonRemotePagingSource @Inject constructor(
-    val pokemonAPI: PokemonAPI
+    private val pokemonAPI: PokemonAPI
 ) : PagingSource<Int, NamedApiResource>()
 {
     override fun getRefreshKey(state: PagingState<Int, NamedApiResource>): Int? {

@@ -25,7 +25,8 @@ class PokemonAdapter(
             val id = Regex("[0-9]+").findAll(pokemon.url)
                 .map(MatchResult::value)
                 .toList()
-            val imageURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id[1]}.svg"
+
+            val imageURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id[1]}.png"
             loadUserPhoto(imageIV, imageURL)
 
             holder.itemView.setOnClickListener {
