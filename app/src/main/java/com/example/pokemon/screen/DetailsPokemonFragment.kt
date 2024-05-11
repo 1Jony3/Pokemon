@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import com.example.pokemon.R
 import com.example.pokemon.databinding.FragmentDetailsPokemonBinding
 import com.example.pokemon.model.adapter.DetailsPokemonHolder
-import com.example.pokemon.screen.ListPokemonFragment.Companion.ARG_ID
+import com.example.pokemon.model.utils.Constants.ARG_ID
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

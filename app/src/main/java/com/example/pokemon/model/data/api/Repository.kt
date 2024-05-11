@@ -6,6 +6,6 @@ import com.example.pokemon.model.data.entities.Pokemon
 import kotlinx.coroutines.flow.Flow
 
 interface Repository {
-    suspend fun getPokemonList(): Flow<PagingData<NamedApiResource>>
+    suspend fun getPokemonList(searchBy: String): Flow<PagingData<NamedApiResource>>
     suspend fun getPokemon(name: String): Pokemon
 }

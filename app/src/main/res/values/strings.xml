@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Pokemon</string>
-    <string name="title_activity_main">MainActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="stats">Stats</string>
     <string name="hp">hp</string>

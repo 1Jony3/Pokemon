@@ -3,6 +3,7 @@ package com.example.pokemon.screen
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asFlow
 import com.example.pokemon.model.data.api.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -14,41 +15,37 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.launch
 
 @HiltViewModel
 class ListPokemonViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
 
-    private val _listData = MutableStateFlow<PagingData<NamedApiResource>?>(null)
-    val listData: StateFlow<PagingData<NamedApiResource>?> = _listData.asStateFlow()
+    var listData: Flow<PagingData<NamedApiResource>>
     private val searchBy = MutableLiveData("")
 
     init {
-        getProducts()
+        listData = getProducts()
     }
 
-    private fun getProducts() {
-        viewModelScope.launch {
-            try {
-                repository.getPokemonList()
-                    .cachedIn(viewModelScope)
-                    .collect { pagingData ->
-                        _listData.value = pagingData
-                    }
-            } catch (e: Exception) {
-                Log.e("lol", e.toString())
-            }
+    private fun getProducts() = searchBy.asFlow()
+        .debounce(500)
+        .flatMapLatest {
+            repository.getPokemonList(it)
         }
-    }
+        .cachedIn(viewModelScope)
+
 
     fun setSearchBy(value: String) {
         if (this.searchBy.value == value) return
         this.searchBy.postValue(value)
-        //getProducts()
+        listData = getProducts()
     }
 
     fun refresh() {
         this.searchBy.postValue(this.searchBy.value)
     }
 }
+

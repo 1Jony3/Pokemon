@@ -1,5 +1,6 @@
 package com.example.pokemon.model.data.repository
 
+import android.icu.text.StringSearch
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
@@ -14,12 +15,12 @@ import javax.inject.Singleton
 class PokemonRepository @Inject constructor(
     private val pokemon: PokemonAPI): Repository {
 
-    override suspend fun getPokemonList(): Flow<PagingData<NamedApiResource>> {
+    override suspend fun getPokemonList(searchBy: String): Flow<PagingData<NamedApiResource>> {
         return Pager(config = PagingConfig(
             pageSize = 20,
             enablePlaceholders = false
         ),
-            pagingSourceFactory = { PokemonRemotePagingSource(pokemon) }
+            pagingSourceFactory = { PokemonRemotePagingSource(pokemon, searchBy) }
         ).flow
     }
 

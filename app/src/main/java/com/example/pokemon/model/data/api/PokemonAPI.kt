@@ -11,7 +11,7 @@ interface PokemonAPI {
     @GET("pokemon")
     suspend fun getPokemonList(
         @Query("offset") offset: String,
-        @Query("limit") limit: String? = Constants.PAGE_SIZE.toString())
+        @Query("limit") limit: String?)
     : PokemonList
 
     @GET("pokemon/{dexNumOrName}/")

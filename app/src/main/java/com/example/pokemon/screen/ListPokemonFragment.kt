@@ -11,13 +11,14 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pokemon.R
 import com.example.pokemon.databinding.FragmentListPokemonBinding
 import com.example.pokemon.model.adapter.DefaultLoadStateAdapter
 import com.example.pokemon.model.adapter.OnClickPokemonListener
 import com.example.pokemon.model.adapter.PokemonAdapter
 import com.example.pokemon.model.adapter.TryAgainAction
+import com.example.pokemon.model.utils.Constants.ARG_ID
+import com.example.pokemon.model.utils.Constants.ARG_NAME
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.debounce
@@ -31,12 +32,6 @@ class ListPokemonFragment : Fragment(R.layout.fragment_list_pokemon) {
     private lateinit var adapter: PokemonAdapter
     private lateinit var mainLoadStateHolder: DefaultLoadStateAdapter.Holder
     private lateinit var binding: FragmentListPokemonBinding
-
-    companion object{
-        const val ARG_NAME = "name"
-        const val ARG_ID = "id"
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -87,8 +82,6 @@ class ListPokemonFragment : Fragment(R.layout.fragment_list_pokemon) {
             viewModel.listData.collect { pagingData ->
                 if (pagingData != null) {
                     adapter.submitData(pagingData)
-                } else {
-                    // Обработка состояния загрузки или ошибки
                 }
             }
         }
