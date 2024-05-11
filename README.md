@@ -10,4 +10,5 @@
 - Для запросов - Retrofit
 - Для изображений - Glide
 ## Демонстрация работы приложения
-![video_2024-05-11_01-20-59](https://github.com/1Jony3/Pokemon/assets/90905407/90838604-6e40-4672-84e4-43d0d12121b1)
+![video_2024-05-11_01-20-59](https://github.com/1Jony3/Pokemon/assets/90905407/bc356f7b-2c28-429e-b6c6-9af9eebfe9f7)
+
